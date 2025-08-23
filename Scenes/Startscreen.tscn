@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvo070chpcwlh"]
+
+[ext_resource type="Texture2D" uid="uid://8oh5dd1gbn5" path="res://assetsmine/Preview.png" id="1_i85v0"]
+[ext_resource type="Texture2D" uid="uid://ccyp0ir1mytbo" path="res://assetsmine/Box.png" id="2_xubxs"]
+[ext_resource type="FontFile" uid="uid://dpe8d7u36bvbs" path="res://fonts/PixelOperator8-Bold.ttf" id="3_funsi"]
+[ext_resource type="FontFile" uid="uid://dd16mxqh3p2yp" path="res://fonts/PixelOperator8.ttf" id="4_i85v0"]
+[ext_resource type="Script" uid="uid://dq8xuinmhubmk" path="res://scripts/startup.gd" id="4_xubxs"]
+[ext_resource type="Script" uid="uid://b4bmrd343p455" path="res://scripts/skip.gd" id="6_funsi"]
+
+[sub_resource type="Animation" id="Animation_xubxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(559, 221)]
+}
+
+[sub_resource type="Animation" id="Animation_i85v0"]
+resource_name = "new_animation"
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(592, 172), Vector2(592, 182), Vector2(592, 172)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_funsi"]
+_data = {
+&"RESET": SubResource("Animation_xubxs"),
+&"new_animation": SubResource("Animation_i85v0")
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-14, 12)
+
+[node name="Preview" type="Sprite2D" parent="."]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
+position = Vector2(722, 654)
+scale = Vector2(3.9455, 3.94428)
+texture = ExtResource("1_i85v0")
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(559, 221)
+scale = Vector2(2.53, 3.74609)
+texture = ExtResource("2_xubxs")
+
+[node name="Label" type="Label" parent="Box"]
+offset_left = -183.401
+offset_top = -15.1795
+offset_right = 188.599
+offset_bottom = 16.8205
+theme_override_fonts/font = ExtResource("3_funsi")
+theme_override_font_sizes/font_size = 32
+text = "WORLD HEROES"
+
+[node name="Label2" type="Label" parent="Box"]
+offset_left = -77.8656
+offset_top = 16.0167
+offset_right = 482.134
+offset_bottom = 48.0167
+scale = Vector2(0.284261, 0.22235)
+theme_override_fonts/font = ExtResource("3_funsi")
+theme_override_font_sizes/font_size = 32
+text = "start your journey!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Box"]
+libraries = {
+&"": SubResource("AnimationLibrary_funsi")
+}
+autoplay = "new_animation"
+
+[node name="Button1" type="TextureButton" parent="."]
+offset_left = 197.0
+offset_top = 382.0
+offset_right = 902.0
+offset_bottom = 483.0
+script = ExtResource("4_xubxs")
+
+[node name="Label" type="Label" parent="Button1"]
+z_index = 1
+layout_mode = 0
+offset_left = 14.0
+offset_right = 288.0
+offset_bottom = 23.0
+scale = Vector2(2.80163, 4.30159)
+theme_override_fonts/font = ExtResource("4_i85v0")
+text = "What's happened?"
+horizontal_alignment = 1
+
+[node name="Button2" type="TextureButton" parent="."]
+offset_left = 293.0
+offset_top = 459.0
+offset_right = 966.0
+offset_bottom = 558.0
+script = ExtResource("6_funsi")
+
+[node name="Label" type="Label" parent="Button2"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.118
+anchor_right = 0.173
+anchor_bottom = 0.173
+offset_left = 29.254
+offset_top = 16.0
+offset_right = 130.331
+offset_bottom = 25.343
+scale = Vector2(2.80163, 4.30159)
+theme_override_fonts/font = ExtResource("4_i85v0")
+text = "Take me to the levels"
+
+[connection signal="pressed" from="Button1" to="Button1" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

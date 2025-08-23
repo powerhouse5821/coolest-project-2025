@@ -1,0 +1,37 @@
+# Use a base image with the necessary tools
+# A Godot-specific base image can save time and effort
+FROM barichello/godot-ci:4.4.1
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the entire Godot project into the container
+COPY . .
+
+# Set up environment variables for the build
+# Replace "Your_Project_Name" with the actual name of your project's main scene or a relevant file
+ENV PROJECT_FILE="project.godot"
+ENV EXPORT_NAME="web"
+ENV EXPORT_PATH="/app/web/index.html"
+
+# This command runs the export, similar to the command in heroku.yml
+# It's good practice to have the export step in the Dockerfile build process
+# so that the final image contains the exported assets.
+RUN godot --headless --export-release "HTML5"
+
+# Heroku will automatically serve the files from the web process.
+# You will need a web server to serve the exported files.
+# For example, you can use Nginx or a simple Python server.
+# Here, we use Nginx as a multi-stage build to keep the final image small.
+
+# --- Start a new stage for the final image ---
+FROM nginx:alpine
+
+# Copy the exported files from the previous stage
+COPY --from=0 /app/web /usr/share/nginx/html
+
+# Expose the port Heroku uses (usually 80 or 443, but Nginx default is 80)
+EXPOSE 80
+
+# Command to run Nginx
+CMD ["nginx", "-g", "daemon off;"]

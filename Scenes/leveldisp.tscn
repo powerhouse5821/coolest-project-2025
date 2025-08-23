@@ -1,0 +1,111 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq3tudydandfg"]
+
+[ext_resource type="Texture2D" uid="uid://8oh5dd1gbn5" path="res://assetsmine/Preview.png" id="1_r0g21"]
+[ext_resource type="Texture2D" uid="uid://ccyp0ir1mytbo" path="res://assetsmine/Box.png" id="2_ul0p4"]
+[ext_resource type="Script" uid="uid://8hmb6r0asi6r" path="res://scripts/lvlbn1.gd" id="3_3bfxc"]
+[ext_resource type="FontFile" uid="uid://dpe8d7u36bvbs" path="res://fonts/PixelOperator8-Bold.ttf" id="3_w0eeb"]
+[ext_resource type="FontFile" uid="uid://dd16mxqh3p2yp" path="res://fonts/PixelOperator8.ttf" id="5_sib7j"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Preview" type="Sprite2D" parent="."]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
+position = Vector2(722, 654)
+scale = Vector2(3.9455, 3.94428)
+texture = ExtResource("1_r0g21")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 394.0
+offset_top = 424.0
+offset_right = 796.0
+offset_bottom = 489.0
+script = ExtResource("3_3bfxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(199, 31)
+texture = ExtResource("2_ul0p4")
+
+[node name="Label" type="Label" parent="Button/Sprite2D"]
+offset_left = -106.0
+offset_top = -20.0
+offset_right = -2.0
+offset_bottom = -4.0
+scale = Vector2(2.04316, 2.65419)
+theme_override_fonts/font = ExtResource("3_w0eeb")
+text = "LEVEL 1"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 394.0
+offset_top = 242.0
+offset_right = 796.0
+offset_bottom = 307.0
+script = ExtResource("3_3bfxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Button2"]
+position = Vector2(199, 31)
+texture = ExtResource("2_ul0p4")
+
+[node name="Label" type="Label" parent="Button2/Sprite2D"]
+offset_left = -106.0
+offset_top = -20.0
+offset_right = -2.0
+offset_bottom = -4.0
+scale = Vector2(2.04316, 2.65419)
+theme_override_fonts/font = ExtResource("3_w0eeb")
+text = "LEVEL 2"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 389.0
+offset_top = 51.0
+offset_right = 791.0
+offset_bottom = 116.0
+script = ExtResource("3_3bfxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Button3"]
+position = Vector2(199, 31)
+texture = ExtResource("2_ul0p4")
+
+[node name="Label" type="Label" parent="Button3/Sprite2D"]
+offset_left = -106.0
+offset_top = -20.0
+offset_right = -2.0
+offset_bottom = -4.0
+scale = Vector2(2.04316, 2.65419)
+theme_override_fonts/font = ExtResource("3_w0eeb")
+text = "LEVEL 3"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 302.0
+offset_right = 459.0
+offset_bottom = 435.0
+scale = Vector2(0.789944, 1.58604)
+theme_override_fonts/font = ExtResource("5_sib7j")
+text = "Tip:Use the arrow keys for movement in every level. 
+"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 458.0
+offset_top = 560.0
+offset_right = 869.0
+offset_bottom = 614.0
+scale = Vector2(0.789944, 1.58604)
+theme_override_fonts/font = ExtResource("5_sib7j")
+text = "In levels 1 and 2, use the spacebar to jump"
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 870.0
+offset_top = 301.0
+offset_right = 1193.0
+offset_bottom = 355.0
+scale = Vector2(0.789944, 1.58604)
+theme_override_fonts/font = ExtResource("5_sib7j")
+text = "In level 3, use enter to plant"
+autowrap_mode = 3
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="Button" method="_on_button_3_pressed"]

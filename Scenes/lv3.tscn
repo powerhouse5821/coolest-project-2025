@@ -1,0 +1,150 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2w1n4el5oeei"]
+
+[ext_resource type="Script" uid="uid://d3cn6f5f6x300" path="res://scripts/lv_3.gd" id="1_82nh2"]
+[ext_resource type="Texture2D" uid="uid://83sqc6hhmysn" path="res://assetsmine/grassbg.webp" id="1_cyydl"]
+[ext_resource type="PackedScene" uid="uid://b2dbq4ruy4piv" path="res://Scenes/seed.tscn" id="2_cyydl"]
+[ext_resource type="PackedScene" uid="uid://cc41vt16ocn00" path="res://Scenes/player2.tscn" id="3_nqu3g"]
+[ext_resource type="Script" uid="uid://toiupg1y4aub" path="res://scripts/hud.gd" id="4_08o3h"]
+[ext_resource type="PackedScene" uid="uid://c2wqa2577a0ay" path="res://Scenes/solispot.tscn" id="4_vn5rl"]
+[ext_resource type="FontFile" uid="uid://dd16mxqh3p2yp" path="res://fonts/PixelOperator8.ttf" id="5_82nh2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nqu3g"]
+normal = Vector2(-0.28393, 0.958845)
+distance = -250.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_82nh2")
+
+[node name="Tgrass" type="Sprite2D" parent="."]
+position = Vector2(586, 352)
+scale = Vector2(1.73234, 1.05978)
+texture = ExtResource("1_cyydl")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("3_nqu3g")]
+z_index = 1
+position = Vector2(57, 309)
+scale = Vector2(3.3514, 3.36024)
+
+[node name="seeds" type="Node2D" parent="."]
+
+[node name="Area2D" parent="seeds" instance=ExtResource("2_cyydl")]
+position = Vector2(42, 447)
+
+[node name="Area2D2" parent="seeds" instance=ExtResource("2_cyydl")]
+position = Vector2(31, 588)
+
+[node name="Area2D3" parent="seeds" instance=ExtResource("2_cyydl")]
+position = Vector2(777, 536)
+
+[node name="Area2D8" parent="seeds" instance=ExtResource("2_cyydl")]
+position = Vector2(287, 334)
+
+[node name="Area2D4" parent="seeds" instance=ExtResource("2_cyydl")]
+position = Vector2(454, 512)
+
+[node name="Area2D5" parent="seeds" instance=ExtResource("2_cyydl")]
+position = Vector2(541, 313)
+
+[node name="Area2D6" parent="seeds" instance=ExtResource("2_cyydl")]
+position = Vector2(396, 634)
+
+[node name="Area2D7" parent="seeds" instance=ExtResource("2_cyydl")]
+position = Vector2(1035, 566)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-6, 199)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(94, 256)
+rotation = -0.283686
+shape = SubResource("WorldBoundaryShape2D_nqu3g")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-6, 199)
+rotation = -1.59566
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(94, 256)
+rotation = -0.283686
+shape = SubResource("WorldBoundaryShape2D_nqu3g")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_08o3h")
+
+[node name="VictoryLabel" type="Label" parent="HUD"]
+offset_left = 276.0
+offset_top = 89.0
+offset_right = 992.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("5_82nh2")
+
+[node name="TreesLabel" type="Label" parent="HUD"]
+offset_left = 10.0
+offset_top = 28.0
+offset_right = 50.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("5_82nh2")
+
+[node name="SeedsLabel" type="Label" parent="HUD"]
+offset_left = 31.0
+offset_top = 64.0
+offset_right = 71.0
+offset_bottom = 87.0
+theme_override_fonts/font = ExtResource("5_82nh2")
+
+[node name="TimerLabel" type="Label" parent="HUD"]
+offset_left = 574.0
+offset_top = 114.0
+offset_right = 614.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("5_82nh2")
+
+[node name="Instruction" type="Label" parent="HUD"]
+offset_left = 144.0
+offset_top = 23.0
+offset_right = 1164.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("5_82nh2")
+text = "Heal the Earth by planting trees and remvoing the CO2 from the atmosphere
+Collet the seeds  and plant them at the designated points!"
+horizontal_alignment = 1
+
+[node name="soilspots" type="Node2D" parent="."]
+
+[node name="Area2D" parent="soilspots" instance=ExtResource("4_vn5rl")]
+position = Vector2(172, 306)
+scale = Vector2(0.293286, 0.332487)
+
+[node name="Area2D2" parent="soilspots" instance=ExtResource("4_vn5rl")]
+position = Vector2(1112, 475)
+scale = Vector2(0.293286, 0.332487)
+
+[node name="Area2D3" parent="soilspots" instance=ExtResource("4_vn5rl")]
+position = Vector2(696, 339)
+scale = Vector2(0.293286, 0.332487)
+
+[node name="Area2D4" parent="soilspots" instance=ExtResource("4_vn5rl")]
+position = Vector2(245, 540)
+scale = Vector2(0.293286, 0.332487)
+
+[node name="Area2D5" parent="soilspots" instance=ExtResource("4_vn5rl")]
+position = Vector2(855, 453)
+scale = Vector2(0.293286, 0.332487)
+
+[node name="Area2D6" parent="soilspots" instance=ExtResource("4_vn5rl")]
+position = Vector2(954, 314)
+scale = Vector2(0.293286, 0.332487)
+
+[node name="Area2D7" parent="soilspots" instance=ExtResource("4_vn5rl")]
+position = Vector2(624, 502)
+scale = Vector2(0.293286, 0.332487)
+
+[node name="Area2D8" parent="soilspots" instance=ExtResource("4_vn5rl")]
+position = Vector2(430, 363)
+scale = Vector2(0.293286, 0.332487)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 40.0
+one_shot = true
+autostart = true

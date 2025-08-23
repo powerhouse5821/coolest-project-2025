@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2wqa2577a0ay"]
+
+[ext_resource type="Script" uid="uid://ded1rmwyhut2s" path="res://scripts/solispot.gd" id="1_47icy"]
+[ext_resource type="Texture2D" uid="uid://x1guux6k8wen" path="res://assetsmine/ba759f1601ce40859df2cff523e9e226.webp" id="2_47icy"]
+[ext_resource type="PackedScene" uid="uid://cdba6cb4do4mo" path="res://Scenes/tree.tscn" id="2_165jh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qow"]
+size = Vector2(213.118, 205.546)
+
+[node name="Area2D" type="Area2D" groups=["soil_spots"]]
+scale = Vector2(0.577146, 0.574082)
+script = ExtResource("1_47icy")
+tree_scene = ExtResource("2_165jh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.47451)
+position = Vector2(3.8147e-06, 3.48382)
+scale = Vector2(0.213199, 0.20413)
+texture = ExtResource("2_47icy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.866332, 1.74191)
+shape = SubResource("RectangleShape2D_57qow")

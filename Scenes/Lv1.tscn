@@ -1,0 +1,238 @@
+[gd_scene load_steps=17 format=3 uid="uid://b710nxss5eyyy"]
+
+[ext_resource type="Texture2D" uid="uid://qy3lcxcnpkkf" path="res://assetsmine/ShadowForest.png" id="1_b3ayw"]
+[ext_resource type="PackedScene" uid="uid://351sv5n11m34" path="res://Scenes/player.tscn" id="1_t38ex"]
+[ext_resource type="Texture2D" uid="uid://bab80y5loll7d" path="res://assetsmine/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="3_y2t6u"]
+[ext_resource type="Texture2D" uid="uid://b8vhdhlxg8lim" path="res://assetsmine/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1C.png" id="4_b3ayw"]
+[ext_resource type="Texture2D" uid="uid://i1jy57ggbco6" path="res://assetsmine/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="5_58apr"]
+[ext_resource type="PackedScene" uid="uid://buc3hg45483cq" path="res://Scenes/killzone.tscn" id="6_b3ayw"]
+[ext_resource type="FontFile" uid="uid://dd16mxqh3p2yp" path="res://fonts/PixelOperator8.ttf" id="7_58apr"]
+[ext_resource type="PackedScene" uid="uid://ckeaxr4qoy30s" path="res://Scenes/coin.tscn" id="9_w327x"]
+[ext_resource type="PackedScene" uid="uid://ct8kpbaa42b56" path="res://Scenes/enemy1.tscn" id="10_jmdba"]
+[ext_resource type="Script" uid="uid://23eb6qsq1e0l" path="res://scripts/game_manager.gd" id="11_mp0vs"]
+[ext_resource type="PackedScene" uid="uid://cdpsu8mulnutv" path="res://Scenes/levelcomplete.tscn" id="11_vq24t"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8cp6"]
+texture = ExtResource("3_y2t6u")
+0:0/size_in_atlas = Vector2i(6, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-49.1092, -15.2408, 47.9803, -15.2408, 47.9803, 15.8053, -47.4158, 15.2408)
+0:2/size_in_atlas = Vector2i(6, 6)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46.5, -49, 46, -47, 48, 46, -47, 48)
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.6129, -15.9315, 15.9315, -15.9315, 16.5688, 15.6129, -15.2943, 16.2502)
+6:2/size_in_atlas = Vector2i(2, 6)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17, -49, 17, -48, 17, 45, -16, 44)
+8:0/size_in_atlas = Vector2i(4, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-33, -63, 31, -63, 33, 62, -33, 65)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w327x"]
+texture = ExtResource("4_b3ayw")
+0:0/size_in_atlas = Vector2i(6, 6)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46.5, -49, 46, -47, 48, 46, -47, 48)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmdba"]
+texture = ExtResource("5_58apr")
+0:0/size_in_atlas = Vector2i(6, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-47, -18, 46, -16, 45, 14, -47, 16)
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.6129, -15.9315, 16.5688, -16.5688, 16.8874, 16.5688, -16, 15)
+8:0/size_in_atlas = Vector2i(4, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -63, 31, -64, 34, 63, -33, 63)
+6:2/size_in_atlas = Vector2i(2, 6)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -50, 16, -49, 15, 47, -15, 47)
+0:2/size_in_atlas = Vector2i(6, 6)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46.5, -49, 46, -47, 48, 46, -47, 48)
+
+[sub_resource type="TileSet" id="TileSet_1sdo0"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_m8cp6")
+sources/1 = SubResource("TileSetAtlasSource_w327x")
+sources/2 = SubResource("TileSetAtlasSource_jmdba")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jmdba"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="backgrounds" type="Node2D" parent="."]
+
+[node name="ShadowForest" type="Sprite2D" parent="backgrounds"]
+position = Vector2(472.5, 657.5)
+scale = Vector2(3.73992, 4.84191)
+texture = ExtResource("1_b3ayw")
+
+[node name="ShadowForest2" type="Sprite2D" parent="backgrounds"]
+position = Vector2(2079, 648)
+scale = Vector2(2.83266, 4.72426)
+texture = ExtResource("1_b3ayw")
+
+[node name="ShadowForest3" type="Sprite2D" parent="backgrounds"]
+position = Vector2(4161.25, 638.75)
+scale = Vector2(5.61996, 4.70404)
+texture = ExtResource("1_b3ayw")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(150, 497)
+tile_set = SubResource("TileSet_1sdo0")
+format = 2
+layer_0/tile_data = PackedInt32Array(-7, 0, 0, -1, 0, 0, -65531, 0, 0, -131060, 393216, 0, 327672, 524288, 0, 327676, 524288, 0, 262144, 524288, 0, 262148, 524288, 0, 262150, 524288, 0, 393208, 524288, 0, 393212, 524288, 0, 327680, 524288, 0, 327684, 524288, 0, 327686, 524288, 0, -131058, 393216, 0, -65518, 393216, 0, -65516, 393216, 0, -131044, 0, 0, -65500, 0, 0, -65494, 0, 0, -65488, 0, 0, -65482, 0, 0, 262179, 524288, 0, 262183, 524288, 0, 262188, 524288, 0, 262198, 524288, 0, 262186, 524288, 0, 262191, 524288, 0, 262195, 524288, 0, 62, 0, 0, 131142, 0, 2, 65626, 0, 0, 262213, 524288, 0, 262215, 524288, 0, 131170, 0, 2, 262241, 524288, 0, 262243, 524288, 0, -65456, 0, 0, 104, 0, 2, 65663, 0, 2, -130936, 0, 0, -130930, 393216, 0, -130926, 393216, 0, 150, 393216, 0, 131226, 393216, 2, 131230, 393216, 2, 262339, 0, 2, 131273, 0, 2, 209, 0, 0, 218, 0, 0, 65762, 393216, 2, 65767, 393216, 2, -130837, 393216, 0, 65777, 0, 2, 247, 0, 2, -130821, 0, 0, 253, 393216, 2, 196808, 524288, 0, 196810, 524288, 0, 393410, 524288, 0, 327876, 524288, 0, 189, 0, 0, 166, 0, 0, 327845, 524288, 0, 327853, 524288, 0, 327857, 524288, 0, 327861, 524288, 0, 327864, 524288, 0, 327868, 524288, 0, 327870, 524288, 0, -65295, 0, 0, -130825, 0, 0, -130968, 0, 0, -196444, 0, 0, -196511, 393216, 0, -196522, 393216, 0, -196498, 0, 0, 65645, 524288, 0, 65647, 524288, 0, -130858, 393216, 0, 131323, 393216, 2, -392963, 393216, 2, -786179, 393216, 2, -1179395, 393216, 2, 172, 0, 0, 176, 0, 0, 181, 0, 0, 184, 0, 0, 65652, 0, 0, 65657, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_t38ex")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(61, 451)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(228, 3)
+zoom = Vector2(2, 2)
+limit_right = 4232
+limit_bottom = 550
+
+[node name="killzone" parent="." instance=ExtResource("6_b3ayw")]
+position = Vector2(137, 734)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(-107, -61)
+shape = SubResource("WorldBoundaryShape2D_jmdba")
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(364, 445)
+
+[node name="coin2" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(603, 446)
+
+[node name="coin4" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(788, 460)
+
+[node name="coin5" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(982, 460)
+
+[node name="coin6" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(1180, 474)
+
+[node name="coin7" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(1532, 428)
+
+[node name="coin8" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(1709, 429)
+
+[node name="coin9" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(1976, 493)
+
+[node name="coin10" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(2219, 463)
+
+[node name="coin11" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(2431, 447)
+
+[node name="coin12" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(2621, 481)
+
+[node name="coin13" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(2687, 480)
+
+[node name="coin14" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(2985, 479)
+
+[node name="coin15" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(3163, 478)
+
+[node name="coin16" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(3346, 480)
+
+[node name="coin17" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(3580, 449)
+
+[node name="coin18" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(3775, 463)
+
+[node name="coin19" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(3854, 465)
+
+[node name="coin20" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(3977, 461)
+
+[node name="coin3" parent="coins" instance=ExtResource("9_w327x")]
+position = Vector2(461, 461)
+
+[node name="text" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="text"]
+offset_left = 32.0
+offset_top = 241.0
+offset_right = 120.0
+offset_bottom = 264.0
+theme_override_fonts/font = ExtResource("7_58apr")
+text = "Level 1"
+
+[node name="Label2" type="Label" parent="text"]
+offset_left = 30.0
+offset_top = 266.0
+offset_right = 366.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("7_58apr")
+text = "Collect as many coins as possible!"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="text"]
+offset_left = 4031.0
+offset_top = 293.0
+offset_right = 4367.0
+offset_bottom = 347.0
+theme_override_fonts/font = ExtResource("7_58apr")
+text = "You made it!"
+autowrap_mode = 2
+
+[node name="scorestuff" type="Label" parent="text"]
+offset_left = 4012.0
+offset_top = 326.0
+offset_right = 4198.0
+offset_bottom = 380.0
+theme_override_fonts/font = ExtResource("7_58apr")
+text = "score = "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="text"]
+offset_left = 27.0
+offset_top = 322.0
+offset_right = 369.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("7_58apr")
+text = "The more you collect, the cleaner the earth can get!"
+autowrap_mode = 2
+
+[node name="Node2D" parent="." instance=ExtResource("10_jmdba")]
+position = Vector2(232, 461)
+
+[node name="Node2D2" parent="." instance=ExtResource("10_jmdba")]
+position = Vector2(833, 461)
+
+[node name="Node2D3" parent="." instance=ExtResource("10_jmdba")]
+position = Vector2(2081, 492)
+
+[node name="Node2D4" parent="." instance=ExtResource("10_jmdba")]
+position = Vector2(3087, 477)
+
+[node name="Node2D5" parent="." instance=ExtResource("10_jmdba")]
+position = Vector2(3497, 477)
+
+[node name="Area2D" parent="." instance=ExtResource("11_vq24t")]
+position = Vector2(4186, 429)
+scale = Vector2(0.275145, 0.250048)
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_mp0vs")

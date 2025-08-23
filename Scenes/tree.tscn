@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdba6cb4do4mo"]
+
+[ext_resource type="Texture2D" uid="uid://cg2hy1kxh8vvl" path="res://assetsmine/tree.png" id="1_rsuno"]
+[ext_resource type="Script" uid="uid://b238usuchqtda" path="res://scripts/tree.gd" id="2_rsuno"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rsuno")
+script = ExtResource("2_rsuno")

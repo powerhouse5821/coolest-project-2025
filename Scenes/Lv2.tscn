@@ -1,0 +1,263 @@
+[gd_scene load_steps=18 format=3 uid="uid://b245j6war31mu"]
+
+[ext_resource type="Texture2D" uid="uid://qy3lcxcnpkkf" path="res://assetsmine/ShadowForest.png" id="1_7vgvk"]
+[ext_resource type="PackedScene" uid="uid://351sv5n11m34" path="res://Scenes/player.tscn" id="2_qs4jf"]
+[ext_resource type="Texture2D" uid="uid://bab80y5loll7d" path="res://assetsmine/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1.png" id="3_tv3ej"]
+[ext_resource type="Texture2D" uid="uid://b8vhdhlxg8lim" path="res://assetsmine/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1C.png" id="4_q3vy3"]
+[ext_resource type="Texture2D" uid="uid://i1jy57ggbco6" path="res://assetsmine/[FREE] Industrial Tileset/FREE/5. Industrial Tileset - Starter Pack 32p/1_Industrial_Tileset_1B.png" id="5_80xt1"]
+[ext_resource type="PackedScene" uid="uid://buc3hg45483cq" path="res://Scenes/killzone.tscn" id="6_baug3"]
+[ext_resource type="FontFile" uid="uid://dd16mxqh3p2yp" path="res://fonts/PixelOperator8.ttf" id="7_icn3e"]
+[ext_resource type="PackedScene" uid="uid://nlc3s1s1e2db" path="res://Scenes/can.tscn" id="9_q3vy3"]
+[ext_resource type="PackedScene" uid="uid://cdpsu8mulnutv" path="res://Scenes/levelcomplete.tscn" id="9_tv3ej"]
+[ext_resource type="Script" uid="uid://bcaoo6g0l2pug" path="res://scripts/gamemanagers.gd" id="10_q3vy3"]
+[ext_resource type="PackedScene" uid="uid://hlyvcs1n32dm" path="res://Scenes/trashabaga.tscn" id="11_80xt1"]
+[ext_resource type="PackedScene" uid="uid://ct8kpbaa42b56" path="res://Scenes/enemy1.tscn" id="12_baug3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8cp6"]
+texture = ExtResource("3_tv3ej")
+0:0/size_in_atlas = Vector2i(6, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-49.1092, -15.2408, 47.9803, -15.2408, 47.9803, 15.8053, -47.4158, 15.2408)
+0:2/size_in_atlas = Vector2i(6, 6)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46.5, -49, 46, -47, 48, 46, -47, 48)
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.6129, -15.9315, 15.9315, -15.9315, 16.5688, 15.6129, -15.2943, 16.2502)
+6:2/size_in_atlas = Vector2i(2, 6)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17, -49, 17, -48, 17, 45, -16, 44)
+8:0/size_in_atlas = Vector2i(4, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-33, -63, 31, -63, 33, 62, -33, 65)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w327x"]
+texture = ExtResource("4_q3vy3")
+0:0/size_in_atlas = Vector2i(6, 6)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46.5, -49, 46, -47, 48, 46, -47, 48)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmdba"]
+texture = ExtResource("5_80xt1")
+0:0/size_in_atlas = Vector2i(6, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-47, -18, 46, -16, 45, 14, -47, 16)
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.6129, -15.9315, 16.5688, -16.5688, 16.8874, 16.5688, -16, 15)
+8:0/size_in_atlas = Vector2i(4, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -63, 31, -64, 34, 63, -33, 63)
+6:2/size_in_atlas = Vector2i(2, 6)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -50, 16, -49, 15, 47, -15, 47)
+0:2/size_in_atlas = Vector2i(6, 6)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-46.5, -49, 46, -47, 48, 46, -47, 48)
+
+[sub_resource type="TileSet" id="TileSet_1sdo0"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_m8cp6")
+sources/1 = SubResource("TileSetAtlasSource_w327x")
+sources/2 = SubResource("TileSetAtlasSource_jmdba")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b3ayw"]
+distance = 203.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ShadowForest" type="Sprite2D" parent="."]
+position = Vector2(472.5, 657.5)
+scale = Vector2(3.73992, 4.84191)
+texture = ExtResource("1_7vgvk")
+
+[node name="ShadowForest2" type="Sprite2D" parent="."]
+position = Vector2(2079, 648)
+scale = Vector2(2.83266, 4.72426)
+texture = ExtResource("1_7vgvk")
+
+[node name="ShadowForest3" type="Sprite2D" parent="."]
+position = Vector2(4161.25, 638.75)
+scale = Vector2(5.61996, 4.70404)
+texture = ExtResource("1_7vgvk")
+
+[node name="Player" parent="." instance=ExtResource("2_qs4jf")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(62, 451)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(228, 3)
+zoom = Vector2(2, 2)
+limit_right = 4232
+limit_bottom = 550
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(150, 497)
+tile_set = SubResource("TileSet_1sdo0")
+format = 2
+layer_0/tile_data = PackedInt32Array(-7, 0, 0, -1, 0, 0, -65531, 0, 0, 327672, 524288, 0, 327676, 524288, 0, 262144, 524288, 0, 262148, 524288, 0, 262150, 524288, 0, 393208, 524288, 0, 393212, 524288, 0, 327680, 524288, 0, 327684, 524288, 0, 327686, 524288, 0, -65518, 393216, 0, -65500, 0, 0, 262179, 524288, 0, 262183, 524288, 0, 131170, 0, 2, 262241, 524288, 0, 262243, 524288, 0, -65456, 0, 0, 104, 0, 2, -130936, 0, 0, -130930, 393216, 0, -130926, 393216, 0, 150, 393216, 0, 131230, 393216, 2, 262339, 0, 2, 209, 0, 0, 65777, 0, 2, 247, 0, 2, -130821, 0, 0, 253, 393216, 2, 393410, 524288, 0, 327876, 524288, 0, 183, 0, 0, 327849, 524288, 0, 327853, 524288, 0, 327857, 524288, 0, 327861, 524288, 0, 327864, 524288, 0, 327868, 524288, 0, 327870, 524288, 0, -65295, 0, 0, -130825, 0, 0, -130968, 0, 0, -196444, 0, 0, -130858, 393216, 0, -392963, 393216, 2, -786179, 393216, 2, -1179395, 393216, 2, 327690, 524288, 0, 327692, 524288, 0, -65515, 0, 0, -65506, 0, 0, -65494, 0, 0, 58, 393216, 0, -196518, 0, 0, -65408, 0, 0, 262298, 393216, 2, 167, 393216, 0, 131274, 393216, 0, -196374, 0, 0, 131291, 0, 0, 65788, 524288, 0, 196854, 524288, 0, 196856, 524288, 0, 262176, 524288, 0, 262173, 524288, 0, 262187, 524288, 0, 64, 0, 0, 51, 393216, 0, -130962, 0, 0, 131181, 524288, 0, 131183, 524288, 0, 131178, 524288, 0, 131175, 524288, 0, 65656, 0, 0, 177, 0, 0, 171, 0, 0, 131269, 0, 0, -65310, 0, 0, 70, 0, 0, 327749, 524288, 0, 327751, 524288, 0, 189, 0, 0, -65525, 0, 0, 196618, 524288, 0, 196620, 524288, 0)
+
+[node name="killzone" parent="." instance=ExtResource("6_baug3")]
+position = Vector2(206, 945)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_b3ayw")
+
+[node name="Area2D" parent="." instance=ExtResource("9_tv3ej")]
+position = Vector2(4186, 415)
+scale = Vector2(0.365998, 0.386219)
+
+[node name="gamemanagers" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_q3vy3")
+
+[node name="txt" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="txt"]
+offset_left = 32.0
+offset_top = 241.0
+offset_right = 120.0
+offset_bottom = 264.0
+theme_override_fonts/font = ExtResource("7_icn3e")
+text = "Level 2"
+
+[node name="points" type="Label" parent="txt"]
+offset_left = 4041.0
+offset_top = 339.0
+offset_right = 4139.0
+offset_bottom = 362.0
+theme_override_fonts/font = ExtResource("7_icn3e")
+text = "score = "
+
+[node name="Label5" type="Label" parent="txt"]
+offset_left = 4029.0
+offset_top = 305.0
+offset_right = 4175.0
+offset_bottom = 328.0
+theme_override_fonts/font = ExtResource("7_icn3e")
+text = "Great work!"
+
+[node name="Label2" type="Label" parent="txt"]
+offset_left = 30.0
+offset_top = 266.0
+offset_right = 366.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("7_icn3e")
+text = "Collect as much waste as possible! "
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="txt"]
+offset_left = 27.0
+offset_top = 322.0
+offset_right = 369.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("7_icn3e")
+text = "1 trash bag/ bottle = 5 pts"
+autowrap_mode = 2
+
+[node name="cans" type="Node2D" parent="."]
+
+[node name="can" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(231, 461)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can2" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(490, 466)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can3" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(750, 463)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can4" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(1935, 446)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can5" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(1304, 479)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can6" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(1781, 447)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can7" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(2426, 446)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can8" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(3010, 479)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can9" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(3772, 463)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="can10" parent="cans" instance=ExtResource("9_q3vy3")]
+position = Vector2(4038, 464)
+rotation = 0.345077
+scale = Vector2(0.585731, 0.745286)
+
+[node name="trash" type="Node2D" parent="."]
+
+[node name="tbag" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(326, 455)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag2" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(974, 472)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag3" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(1157, 471)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag4" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(1629, 422)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag8" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(3195, 472)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag9" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(3389, 503)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag10" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(3667, 505)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag5" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(2077, 488)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag6" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(3581, 440)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="tbag7" parent="trash" instance=ExtResource("11_80xt1")]
+position = Vector2(3902, 426)
+scale = Vector2(0.119914, 0.122671)
+
+[node name="Node2D" parent="." instance=ExtResource("12_baug3")]
+position = Vector2(847, 459)
+
+[node name="Node2D2" parent="." instance=ExtResource("12_baug3")]
+position = Vector2(1697, 474)
+
+[node name="Node2D3" parent="." instance=ExtResource("12_baug3")]
+position = Vector2(2885, 472)
+
+[node name="Node2D4" parent="." instance=ExtResource("12_baug3")]
+position = Vector2(3249, 506)

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx2x88p44ccjs"]
+
+[ext_resource type="Script" uid="uid://v5i53khj2hol" path="res://scripts/done.gd" id="1_vk8v5"]
+[ext_resource type="Texture2D" uid="uid://8oh5dd1gbn5" path="res://assetsmine/Preview.png" id="2_c60a6"]
+[ext_resource type="FontFile" uid="uid://dd16mxqh3p2yp" path="res://fonts/PixelOperator8.ttf" id="3_cpjho"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vk8v5")
+
+[node name="Preview" type="Sprite2D" parent="."]
+modulate = Color(0.646029, 0.646029, 0.646029, 1)
+position = Vector2(722, 654)
+scale = Vector2(3.9455, 3.94428)
+texture = ExtResource("2_c60a6")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 172.0
+offset_top = 167.0
+offset_right = 1096.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("3_cpjho")
+theme_override_font_sizes/font_size = 56
+text = "Final Level complete!"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 333.0
+offset_top = 322.0
+offset_right = 805.0
+offset_bottom = 388.0
+theme_override_fonts/font = ExtResource("3_cpjho")
+theme_override_font_sizes/font_size = 24
+text = "Try all levels again"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 332.0
+offset_top = 419.0
+offset_right = 804.0
+offset_bottom = 485.0
+theme_override_fonts/font = ExtResource("3_cpjho")
+theme_override_font_sizes/font_size = 24
+text = "Quit Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

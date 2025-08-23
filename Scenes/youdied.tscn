@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://b37h7ricqihk8"]
+
+[ext_resource type="Texture2D" uid="uid://qy3lcxcnpkkf" path="res://assetsmine/ShadowForest.png" id="1_k1gaj"]
+[ext_resource type="Script" uid="uid://daw2nt6uhpe05" path="res://scripts/youdied.gd" id="1_kqf00"]
+[ext_resource type="FontFile" uid="uid://dd16mxqh3p2yp" path="res://fonts/PixelOperator8.ttf" id="2_hejgs"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_kqf00")
+
+[node name="ShadowForest" type="Sprite2D" parent="."]
+modulate = Color(0.564962, 0.564962, 0.564962, 1)
+position = Vector2(472.5, 657.5)
+scale = Vector2(3.73992, 4.84191)
+texture = ExtResource("1_k1gaj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 346.0
+offset_top = 143.0
+offset_right = 458.0
+offset_bottom = 166.0
+scale = Vector2(4.2624, 6.24216)
+theme_override_fonts/font = ExtResource("2_hejgs")
+text = "You died!"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 282.0
+offset_top = 362.0
+offset_right = 874.0
+offset_bottom = 423.0
+theme_override_fonts/font = ExtResource("2_hejgs")
+theme_override_font_sizes/font_size = 32
+text = "Back to levels"
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
