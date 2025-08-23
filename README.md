@@ -28,9 +28,9 @@ The game uses the following keyboard controls:
 
 ## How to Run 
 
-. Clone the Project
-. Execute the command `godot .`
-. The Project will Exeucte
+- Clone the Project
+- Execute the command `godot .`
+- The Project will Exeucte
 
 
 ## The Web URL for this Project can be found at 
