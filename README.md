@@ -7,6 +7,10 @@
 
 "World Heroes" is a 2D platformer game developed with the Godot Engine. The game is set in a post-apocalyptic world where a toxic explosion has destroyed the environment. The player takes on the role of an agent from the World Environmental Agency, tasked with cleaning up the planet and restoring life. The gameplay involves collecting seeds, planting trees, and cleaning up waste, all while avoiding enemies. The ultimate goal is to restore the planet to its former glory.
 
+This game is designed to help the players to understand the following SDG goals
+- **SDG 13:** Climate Action, improving the climate of our world, through the reducion in CO2 and other harmful gases
+- **SDG 15:** Life on Land, for sustaining all living beings on land
+  
 ## Gameplay
 
 The core gameplay revolves around environmental restoration. Players navigate through levels collecting various items:
