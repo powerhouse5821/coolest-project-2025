@@ -1,12 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://cvdot85sjsbhe"]
+[gd_scene load_steps=25 format=3 uid="uid://cvdot85sjsbhe"]
 
 [ext_resource type="Texture2D" uid="uid://ccyp0ir1mytbo" path="res://assetsmine/Box.png" id="2_u0xp4"]
 [ext_resource type="FontFile" uid="uid://dd16mxqh3p2yp" path="res://fonts/PixelOperator8.ttf" id="3_lh3an"]
 [ext_resource type="Texture2D" uid="uid://qy3lcxcnpkkf" path="res://assetsmine/ShadowForest.png" id="3_u5g7b"]
-[ext_resource type="Script" uid="uid://bykw63g1fgvwh" path="res://scripts/screenchng.gd" id="4_u5g7b"]
 [ext_resource type="Script" uid="uid://cd6i45iniv1l" path="res://scripts/levelgo.gd" id="5_gqu6k"]
 [ext_resource type="Texture2D" uid="uid://cfv4ssntqeyn2" path="res://assetsmine/enemy-deadth.png" id="6_3kkm8"]
-[ext_resource type="Texture2D" uid="uid://dkiqmxc38xqmi" path="res://assetsmine/spritesheet.png" id="6_v7bqa"]
+[ext_resource type="Texture2D" uid="uid://d1aknti34s7tb" path="res://assetsmine/spritesheet.png" id="6_v7bqa"]
 [ext_resource type="Texture2D" uid="uid://drj30okscysci" path="res://assetsmine/_0000_Layer-1.png" id="8_lsxa0"]
 [ext_resource type="Texture2D" uid="uid://xsrdbmfownn3" path="res://assetsmine/MiniPrinceMan.png" id="9_3kkm8"]
 
@@ -74,42 +73,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_u0xp4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1700, 310)]
-}
-
-[sub_resource type="Animation" id="Animation_gqu6k"]
-resource_name = "moveit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1700, 310), Vector2(585, 310)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bl70o"]
-_data = {
-&"RESET": SubResource("Animation_u0xp4"),
-&"moveit": SubResource("Animation_gqu6k")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7bqa"]
 atlas = ExtResource("9_3kkm8")
@@ -187,22 +150,13 @@ offset_left = -176.034
 offset_top = -18.2828
 offset_right = 189.966
 offset_bottom = 66.7172
-scale = Vector2(0.96341, 0.844938)
+scale = Vector2(0.947152, 0.60366)
 theme_override_fonts/font = ExtResource("3_lh3an")
 theme_override_font_sizes/font_size = 8
-text = "A catastrophic toxic explosion has devastated Earth, turning oceans and forests into a barren wasteland. As an agent of the World Environmental Agency, your mission is to cleanse the planet and restore it to life."
+text = "A catastrophic toxic explosion has devastated Earth, turning oceans and forests into a barren wasteland. As an agent of the World Environmental Agency, your mission is to cleanse the planet and restore it to life.
+Are you ready for this?"
 horizontal_alignment = 1
 autowrap_mode = 3
-
-[node name="Button" type="Button" parent="Box"]
-offset_left = 143.208
-offset_top = 15.3705
-offset_right = 170.208
-offset_bottom = 46.3705
-scale = Vector2(0.697889, 0.289114)
-theme_override_fonts/font = ExtResource("3_lh3an")
-text = ">"
-script = ExtResource("4_u5g7b")
 
 [node name="skully" type="AnimatedSprite2D" parent="Box"]
 position = Vector2(175.673, -16.1795)
@@ -210,42 +164,8 @@ scale = Vector2(0.500817, 0.227683)
 sprite_frames = SubResource("SpriteFrames_s3ax0")
 autoplay = "default"
 
-[node name="Box2" type="Sprite2D" parent="."]
-position = Vector2(1700, 310)
-scale = Vector2(2.77219, 6.18067)
-texture = ExtResource("2_u0xp4")
-
-[node name="Label" type="Label" parent="Box2"]
-offset_left = -176.034
-offset_top = -14.0761
-offset_right = 213.966
-offset_bottom = 103.924
-scale = Vector2(0.905973, 0.797714)
-theme_override_fonts/font = ExtResource("3_lh3an")
-theme_override_font_sizes/font_size = 8
-text = "The fate of everything rests on your shoulders. You are humanity's last hope to restore the planet and bring life back to this desolate wasteland. Are you ready for the mission of a lifetime?
-
-
-
-
-
-
-"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Box2"]
-libraries = {
-&"": SubResource("AnimationLibrary_bl70o")
-}
-
-[node name="0000Layer-1" type="Sprite2D" parent="Box2"]
-position = Vector2(-158.719, 19.0918)
-scale = Vector2(0.918723, 0.384263)
-texture = ExtResource("8_lsxa0")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Box2"]
-position = Vector2(177.116, -23.7838)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Box"]
+position = Vector2(173.87, -25.4018)
 scale = Vector2(1.59508, 0.80139)
 sprite_frames = SubResource("SpriteFrames_fgsif")
 autoplay = "default"
@@ -253,15 +173,19 @@ frame = 2
 frame_progress = 0.781873
 flip_h = true
 
-[node name="Button2" type="Button" parent="Box2"]
-offset_left = 62.0448
-offset_top = 13.5908
-offset_right = 242.045
-offset_bottom = 44.5908
-scale = Vector2(0.68443, 0.353287)
+[node name="0000Layer-1" type="Sprite2D" parent="Box"]
+position = Vector2(-157.637, 16.3413)
+scale = Vector2(0.918723, 0.384263)
+texture = ExtResource("8_lsxa0")
+
+[node name="Button2" type="Button" parent="Box"]
+offset_left = 93.4279
+offset_top = 18.121
+offset_right = 273.428
+offset_bottom = 42.121
+scale = Vector2(0.486252, 0.254367)
 theme_override_fonts/font = ExtResource("3_lh3an")
 text = "Start journey"
 script = ExtResource("5_gqu6k")
 
-[connection signal="pressed" from="Box/Button" to="Box/Button" method="_on_pressed"]
-[connection signal="pressed" from="Box2/Button2" to="Box2/Button2" method="_on_pressed"]
+[connection signal="pressed" from="Box/Button2" to="Box/Button2" method="_on_pressed"]
