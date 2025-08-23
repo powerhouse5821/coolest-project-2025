@@ -38,7 +38,7 @@ https://mullet-winning-gently.ngrok-free.app/
 
 
 ## Demo Video
-https://youtu.be/8EW-3XPen6Q
+[![Demo Video](https://img.youtube.com/vi/8EW-3XPen6Q/0.jpg)](https://youtu.be/8EW-3XPen6Q)
 
 
 
